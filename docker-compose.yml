@@ -3,19 +3,20 @@ services:
   team_db:
       container_name: team_db
       image: mysql:debian
-      env_file: .env
+      env_file: env
       cap_add:
         - SYS_NICE
       command: ["--connect_timeout=28800", "--secure-file-priv="]
       volumes:
           - ./sql-scripts:/docker-entrypoint-initdb.d
           - db-data:/var/lib/mysql
-          - ./mydb-entrypoint.sh:/mydb-entrypoint.sh
-      environment:
-          - MYSQL_DATABASE:hr_db
+          - ./dump_files:/dump_files
+          - ./env:/env
       restart: unless-stopped
       networks:
         - app_network
+      ports:
+        - 3306:3306
         
 volumes:
   db-data:

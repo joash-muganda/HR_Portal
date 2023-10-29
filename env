@@ -1,0 +1,5 @@
+MYSQL_ROOT_PASSWORD=team_late
+MYSQL_USER=hr_system
+MYSQL_PASSWORD=team_late
+MYSQL_HOST=localhost
+MYSQL_DATABASE=hr_db
