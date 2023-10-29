@@ -12,6 +12,10 @@ data privacy.
 Outlining our roadmap, we've delineated clear milestones:
 - **October 10th**: Backend Development Completion, ensuring our system's robust
 foundation.
+
+> To initialize the backend, CD into the HR_Portal repo and then run
+> docker-compose up -d   
+
 - **October 20th**: Completion of Frontend Development, integrated with the
 backend, to guarantee a cohesive user experience.
 - **October 30th**: Emphasis on implementing SSO and bolstering security features,
