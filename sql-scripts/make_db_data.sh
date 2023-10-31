@@ -1,3 +1,5 @@
+#! /bin/bash
+# macOS-specific code
 # Load environment variables from .env file
 export $(grep -v '^#' env | xargs)
 
@@ -6,7 +8,6 @@ USER=$MYSQL_USER
 PASSWORD=$MYSQL_PASSWORD
 HOST=$MYSQL_HOST
 DATABASE=$MYSQL_DB
-
 # Directory where the dump files are located
 DUMP_DIR="./dump_files"
 
