@@ -2,6 +2,10 @@
    FROM mysql:debian
    RUN chown -R mysql:mysql /var/lib/mysql
    RUN chown -R mysql:mysql /docker-entrypoint-initdb.d
+   COPY my.cnf /etc/mysql/my.cnf
+   COPY env /env
+   RUN chown mysql:mysql /etc/mysql/my.cnf && chmod 600 /etc/mysql/my.cnf
+   RUN chown mysql:mysql env && chmod 700 env
    # Install necessary packages for PowerShell
    #RUN apt-get update && apt-get install -y \
    #    curl \

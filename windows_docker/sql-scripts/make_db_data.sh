@@ -1,13 +1,13 @@
 #! /bin/bash
 # macOS-specific code
-# Load environment variables from .env file
-export $(grep -v '^#' env | xargs)
+# Load environment variables from docker compose env
 
 # Set MySQL connection variables
 USER=$MYSQL_USER
 PASSWORD=$MYSQL_PASSWORD
 HOST=$MYSQL_HOST
-DATABASE=$MYSQL_DB
+DATABASE=$MYSQL_DATABASE
+
 # Directory where the dump files are located
 DUMP_DIR="./dump_files"
 
@@ -18,10 +18,12 @@ cd "$DUMP_DIR"
 for DUMP_FILE in *.dump
 do
   echo "Importing $DUMP_FILE into $DATABASE"
-  mysql -u "$USER" -p"$PASSWORD" -h "$HOST" -P 3306 -D "$DATABASE" < "$DUMP_FILE"
+  mysql -u hr_system -p"team_late" -h"localhost" -P"3306" -D "$DB" < "$DUMP_FILE"
   if [ $? -eq 0 ]; then
     echo "Imported $DUMP_FILE successfully."
   else
     echo "Error occurred during import of $DUMP_FILE"
+    # show error details
+
   fi
 done
