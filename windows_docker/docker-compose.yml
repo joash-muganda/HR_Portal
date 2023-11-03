@@ -2,20 +2,16 @@ version: '3'
 services:
   team_db:
       container_name: team_db
-      build:
-        context: .
-        dockerfile: Dockerfile
+      image: mysql:debian
       env_file: ../env
       cap_add:
         - SYS_NICE
-      command: ["pwsh", "-ExecutionPolicy", "Bypass", "-File", "entrypoint.ps1", "--connect_timeout=28800", "--secure-file-priv="]
+      command: ["--connect_timeout=28800", "--secure-file-priv="]
       volumes:
-          - ./sql-scripts:/sql-scripts
-          - ./sql-scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
-          # - db-data:/var/lib/mysql
+          - ./sql-scripts:/docker-entrypoint-initdb.d
+          - db-data:/var/lib/mysql
           - ../dump_files:/dump_files
           - ../env:/env
-          - ./entrypoint.ps1:/entrypoint.ps1
       restart: unless-stopped
       networks:
         - app_network
