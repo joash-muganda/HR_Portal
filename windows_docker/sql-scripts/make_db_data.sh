@@ -1,5 +1,5 @@
 #! /bin/bash
-# macOS-specific code
+# windows-specific code
 # Load environment variables from docker compose env
 
 # Set MySQL connection variables

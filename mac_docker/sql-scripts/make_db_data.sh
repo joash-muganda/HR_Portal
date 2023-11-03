@@ -9,7 +9,7 @@ PASSWORD=$MYSQL_PASSWORD
 HOST=$MYSQL_HOST
 DATABASE=$MYSQL_DB
 # Directory where the dump files are located
-DUMP_DIR="./dump_files"
+DUMP_DIR="../dump_files"
 
 # Change to the directory containing the dumps
 cd "$DUMP_DIR"

@@ -10,7 +10,7 @@ services:
       volumes:
           - ./sql-scripts:/docker-entrypoint-initdb.d
           - db-data:/var/lib/mysql
-          - ./dump_files:/dump_files
+          - ../dump_files:/dump_files
           - ./env:/env
       restart: unless-stopped
       networks:
