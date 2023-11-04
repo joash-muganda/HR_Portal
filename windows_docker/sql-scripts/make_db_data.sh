@@ -18,7 +18,7 @@ cd "$DUMP_DIR"
 for DUMP_FILE in *.dump
 do
   echo "Importing $DUMP_FILE into $DATABASE"
-  mysql -u hr_system -p"team_late" -h"localhost" -P"3306" -D "$DB" < "$DUMP_FILE"
+  mysql -u hr_system -p"team_late" -h"localhost" -P"3306" -D "$DATABASE" < "$DUMP_FILE"
   if [ $? -eq 0 ]; then
     echo "Imported $DUMP_FILE successfully."
   else
